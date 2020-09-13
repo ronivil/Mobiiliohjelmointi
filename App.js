@@ -5,6 +5,7 @@ import { createAppContainer } from "react-navigation";
 
 import HomeScreen from './Components/HomeScreen';
 import calculator from './Components/calculator';
+import GuessGame from './Components/GuessGame';
 
 
 class App extends React.Component {
@@ -19,6 +20,9 @@ const AppNavigator = createStackNavigator({
   },
   Calculator: {
     screen: calculator
+  },
+  GuessGame: {
+    screen: GuessGame
   }
 },{
     initialRouteName: "Home"

@@ -8,9 +8,13 @@ export default class Homescreen extends Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Welcome!</Text>
           <Button
-          title="Calculator"
-          onPress={() => this.props.navigation.navigate('Calculator')}
-/>
+            title="Calculator"
+            onPress={() => this.props.navigation.navigate('Calculator')}
+          />
+          <Button
+            title="Number guessing game"
+            onPress={() => this.props.navigation.navigate('GuessGame')}
+          />
       </View>
     )
   }

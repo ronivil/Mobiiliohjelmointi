@@ -19,6 +19,10 @@ export default class Homescreen extends Component {
             title="Calculator with history"
             onPress={() => this.props.navigation.navigate('HistoryCalculator')}
           />
+          <Button
+            title="Shopping list"
+            onPress={() => this.props.navigation.navigate('ShoppingList')}
+          />
       </View>
     )
   }

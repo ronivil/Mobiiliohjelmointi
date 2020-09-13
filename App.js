@@ -7,6 +7,7 @@ import HomeScreen from './Components/HomeScreen';
 import calculator from './Components/calculator';
 import GuessGame from './Components/GuessGame';
 import HistoryCalculator from './Components/HistoryCalculator'
+import ShoppingList from './Components/ShoppingList'
 
 
 class App extends React.Component {
@@ -27,6 +28,9 @@ const AppNavigator = createStackNavigator({
   },
   HistoryCalculator: {
     screen: HistoryCalculator
+  },
+  ShoppingList: {
+    screen: ShoppingList
   }
 },{
     initialRouteName: "Home"

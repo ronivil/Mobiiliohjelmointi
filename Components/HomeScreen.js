@@ -15,6 +15,10 @@ export default class Homescreen extends Component {
             title="Number guessing game"
             onPress={() => this.props.navigation.navigate('GuessGame')}
           />
+           <Button
+            title="Calculator with history"
+            onPress={() => this.props.navigation.navigate('HistoryCalculator')}
+          />
       </View>
     )
   }

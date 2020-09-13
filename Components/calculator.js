@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, Component } from 'react';
 import { StyleSheet, text, View, TextInput, Button } from 'react-native';
 
-export default class App extends Component 
+export default class calculator extends Component 
   {
     constructor(props)
     {

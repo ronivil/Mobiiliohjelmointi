@@ -8,6 +8,8 @@ import calculator from './Components/calculator';
 import GuessGame from './Components/GuessGame';
 import HistoryCalculator from './Components/HistoryCalculator'
 import ShoppingList from './Components/ShoppingList'
+import CalcHistory from './Components/CalcHistory'
+import HistoryPage from './Components/HistoryPage'
 
 
 class App extends React.Component {
@@ -31,6 +33,12 @@ const AppNavigator = createStackNavigator({
   },
   ShoppingList: {
     screen: ShoppingList
+  },
+  CalcHistory: {
+    screen: CalcHistory
+  },
+  HistoryPage: {
+    screen: HistoryPage
   }
 },{
     initialRouteName: "Home"

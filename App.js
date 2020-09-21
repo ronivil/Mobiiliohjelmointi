@@ -10,6 +10,8 @@ import HistoryCalculator from './Components/HistoryCalculator'
 import ShoppingList from './Components/ShoppingList'
 import CalcHistory from './Components/CalcHistory'
 import HistoryPage from './Components/HistoryPage'
+import RecipeFinder from './Components/RecipeFinder'
+import EuroConverter from './Components/EuroConverter'
 
 
 class App extends React.Component {
@@ -39,18 +41,15 @@ const AppNavigator = createStackNavigator({
   },
   HistoryPage: {
     screen: HistoryPage
+  },
+  RecipeFinder: {
+    screen: RecipeFinder
+  },
+  EuroConverter: {
+    screen: EuroConverter
   }
 },{
     initialRouteName: "Home"
 });
 
 export default createAppContainer(AppNavigator);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

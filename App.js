@@ -12,6 +12,7 @@ import CalcHistory from './Components/CalcHistory'
 import HistoryPage from './Components/HistoryPage'
 import RecipeFinder from './Components/RecipeFinder'
 import EuroConverter from './Components/EuroConverter'
+import FindAddress from './Components/FindAddress'
 
 
 class App extends React.Component {
@@ -47,6 +48,9 @@ const AppNavigator = createStackNavigator({
   },
   EuroConverter: {
     screen: EuroConverter
+  },
+  FindAddress: {
+    screen: FindAddress
   }
 },{
     initialRouteName: "Home"

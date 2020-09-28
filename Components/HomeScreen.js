@@ -51,6 +51,12 @@ export default class Homescreen extends Component {
             onPress={() => this.props.navigation.navigate('EuroConverter')}
           />
           </View>
+          <View style={styles.buttonStyles}>
+          <Button
+            title="Exercise: Find the address"
+            onPress={() => this.props.navigation.navigate('FindAddress')}
+          />
+          </View>
           </View>
       </View>
       </ImageBackground>

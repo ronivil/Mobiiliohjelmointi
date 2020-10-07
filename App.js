@@ -13,7 +13,7 @@ import HistoryPage from './Components/HistoryPage'
 import RecipeFinder from './Components/RecipeFinder'
 import EuroConverter from './Components/EuroConverter'
 import FindAddress from './Components/FindAddress'
-
+import TextToSpeech from './Components/TextToSpeech'
 
 class App extends React.Component {
   render() {
@@ -51,6 +51,9 @@ const AppNavigator = createStackNavigator({
   },
   FindAddress: {
     screen: FindAddress
+  },
+  TextToSpeech: {
+    screen: TextToSpeech
   }
 },{
     initialRouteName: "Home"

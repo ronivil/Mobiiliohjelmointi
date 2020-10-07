@@ -57,6 +57,12 @@ export default class Homescreen extends Component {
             onPress={() => this.props.navigation.navigate('FindAddress')}
           />
           </View>
+          <View style={styles.buttonStyles}>
+          <Button
+            title="Exercise: Text to speech"
+            onPress={() => this.props.navigation.navigate('TextToSpeech')}
+          />
+          </View>
           </View>
       </View>
       </ImageBackground>

@@ -14,6 +14,7 @@ import RecipeFinder from './Components/RecipeFinder'
 import EuroConverter from './Components/EuroConverter'
 import FindAddress from './Components/FindAddress'
 import TextToSpeech from './Components/TextToSpeech'
+import ContactList from './Components/ContactList'
 
 class App extends React.Component {
   render() {
@@ -54,6 +55,9 @@ const AppNavigator = createStackNavigator({
   },
   TextToSpeech: {
     screen: TextToSpeech
+  },
+  ContactList: {
+    screen: ContactList
   }
 },{
     initialRouteName: "Home"

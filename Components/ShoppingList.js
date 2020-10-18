@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TextInput, Button, FlatList, StyleSheet, Alert } from 'react-native';
+import { Text, View, TextInput, FlatList, StyleSheet, Alert } from 'react-native';
 import * as SQLite from 'expo-sqlite'
+import { ListItem, Input, Button } from 'react-native-elements'
 
 //i didnt bother to comment all the consts because im sure that their names speak for what they do
 export default function ShoppingList() {
@@ -25,7 +26,7 @@ export default function ShoppingList() {
 
     const saveItem = () => {
       db.transaction(tx => {
-          tx.executeSql('insert into grocery (amounts, title) values (?, ?);', [parseInt(amount), title]);    
+          tx.executeSql('insert into grocery (amounts, title) values (?, ?);', [amount, title]);    
         }, null, updateList
       );
       clearFields();
@@ -69,6 +70,8 @@ export default function ShoppingList() {
           style={{
             height: 5,
             width: '100%',
+            borderTopWidth: 1,
+            borderColor: 'black',
             marginVertical: 3,
           }}
         />
@@ -79,15 +82,13 @@ export default function ShoppingList() {
         <View style={styles.container}>
           <View style={styles.topView}>  
 
-            <Text style={styles.title}>Shopping List</Text>
-
             <View style={styles.inputsContainer}>
-              <TextInput placeholder='Product...' style={styles.inputProduct}
+              <Input label = 'PRODUCT' placeholder='Product...' style={styles.inputProduct}
                 onChangeText={(title) => setTitle(title)}
                 value={title}/>
 
               <View>
-              <TextInput placeholder='Quantity...' keyboardType="numeric" style={styles.inputAmount}
+              <Input label = 'AMOUNT' placeholder='Quantity...' style={styles.inputAmount}
                 onChangeText={(amount) => setAmount(amount)}
                 value={amount}/>  
                 </View>
@@ -103,11 +104,11 @@ export default function ShoppingList() {
             style={styles.bottomView}
             keyExtractor={item => item.id.toString()} 
             renderItem={({item}) => 
-              <View style={styles.listcontainer}>
-                <Text style={styles.textProduct}>{item.title}</Text>
-                <Text style={styles.textAmount}>{item.amounts}</Text>
+              <ListItem.Content>
+                <ListItem.Title>{item.title}</ListItem.Title>
+                <ListItem.Subtitle>{item.amounts}</ListItem.Subtitle>
                 <Text style={styles.delete} onPress={() => deleteItem(item.id)}>Bought</Text>
-              </View>} 
+              </ListItem.Content>} 
             data={grocery} 
             ItemSeparatorComponent={listSeparator} 
           />      
@@ -117,67 +118,25 @@ export default function ShoppingList() {
   }
   const styles = StyleSheet.create({
     container: {
-     flex: 1,
-     alignItems: 'center',
-     justifyContent: 'flex-start',
+      flex: 1,
    },
    topView: {
-     flex:.3,
      flexDirection:'column',
-     justifyContent: 'space-around',
-     alignItems: 'center',
      width: '100%',
-   },
-   title: {
-     color: 'black',
-     fontSize: 42,
-     marginTop: -10,
-     width:'100%',
-     textAlign:'center',
    },
    inputsContainer: {
+     paddingTop: 10,
      width: '100%',
      flexDirection: 'column',
-     justifyContent: 'flex-start',
-     alignItems: 'flex-start',
    },
-   inputProduct: {
-     paddingLeft: 2,
-     marginLeft: 20,
-     marginRight: 10,
-     fontSize: 20,
-     width: 180,
-     color:'black',
-     borderColor: 'black',
-     borderWidth: 1,
-     borderRadius: 5,
-   },
-   inputAmount: {
-     paddingLeft: 2,
-     marginLeft: 20,
-     marginTop: 5, 
-   
-     fontSize: 20,
-     width: 180,
-     color:'black',
-     borderWidth: 1,
-     borderRadius: 5,
-    },
     add: {
-     position: 'absolute',
-     right: 100,
-     width: 100,
-     paddingTop: 13
+     width: '100%',
+     paddingHorizontal: 10
     },
     bottomView: {
-     flex:1,
-     marginTop:20,
      width:'100%',
-     paddingHorizontal:30,
-    },
-    listcontainer: {
-     flexDirection: 'row',
-     alignItems: 'center'
+     paddingTop: 20,
+     paddingHorizontal: 10,
     },
     textProduct: {
      paddingLeft: 2,
@@ -185,25 +144,13 @@ export default function ShoppingList() {
      marginRight: 120,
      color:'black',
     },
-    textAmount: {
-     position: 'absolute',
-     right: 80,
-     fontSize: 20,
-     color: 'black',
-     borderColor:'black',
-     width: 20,
-     height: 40,
-     padding: 5,
-     textAlign:'center',
-    },
     delete: {
      position: 'absolute',
      right: 0,
      fontSize: 20,
      height: 30,
-     color: 'blue',
+     color: 'grey',
      paddingHorizontal: 6,
      textAlign:'center',
-     textDecorationLine: 'underline'
     }
    });

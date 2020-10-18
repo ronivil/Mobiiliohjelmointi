@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Button, FlatList } from 'react-native';
-import Constants from 'expo-constants';
-import * as Speech from 'expo-speech';
-import { TextInput } from 'react-native-gesture-handler';
 import * as Contacts from 'expo-contacts';
-import * as SMS from 'expo-sms'   
 
 export default function ContactList() {
 
@@ -36,7 +32,6 @@ export default function ContactList() {
         );
       };
   
-
     return (
         <View style={styles.container}>
 
